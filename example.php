@@ -14,7 +14,7 @@ $synonyms = new soap\Synonyms($config);
 try {
     $words = $synonyms->getSynonyms('Beispiel', 5);
 } catch ( \SoapFault $e ) {
-    print_r($e);
+    print_r($e->getMessage());
     $words = array();
 }
 

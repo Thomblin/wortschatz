@@ -1,14 +1,12 @@
 wortschatz
 ========
 
-wortschatz is a simple PHP SOAP client to talk to the wortschatz web services of uni-leipzig.de
+wortschatz is a simple PHP SOAP client connected to the wortschatz web services of uni-leipzig.de
 
-see webpage:  http://wortschatz.uni-leipzig.de/
-see services: http://wortschatz.uni-leipzig.de/axis/servlet/ServiceOverviewServlet
-
-see example: example.php
-
-available service:
+- see webpage:  http://wortschatz.uni-leipzig.de/
+- see services: http://wortschatz.uni-leipzig.de/axis/servlet/ServiceOverviewServlet
+- see example: example.php
+- available services:
 
 Baseform
 Categories
@@ -32,6 +30,7 @@ Synonyms
 Thesaurus
 Wordforms
 
-TODO:
+
+- TODO:
 
 some services return minor information. only important return values should be delivered
