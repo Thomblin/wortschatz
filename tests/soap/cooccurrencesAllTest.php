@@ -64,9 +64,9 @@ class CooccurrencesAllTest extends \PHPUnit_Framework_TestCase
         $client = $this->createCooccurrencesAll();
 
         $expected = array(
-            array('Auto', 'ein', 4183),
-            array('Auto', 'das', 3015),
-            array('Auto', 'einem', 2466),
+            'ein',
+            'das',
+            'einem',
         );
         $actual = $client->getCooccurrences('Auto', 1, 3);
 
@@ -80,8 +80,8 @@ class CooccurrencesAllTest extends \PHPUnit_Framework_TestCase
         $client = $this->createCooccurrencesAll();
 
         $expected = array(
-            array('Auto', 'ein', 4183),
-            array('Auto', 'das', 3015),
+            'ein',
+            'das',
         );
         $actual = $client->getCooccurrences('Auto', 2500, 3);
 

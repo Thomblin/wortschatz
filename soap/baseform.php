@@ -34,11 +34,50 @@ class Baseform extends Service
     {
         $result = $this->execute(array('Wort', $word));
 
-        return isset($result->executeReturn->result->dataVectors)
-            ? new word\Baseform(
-                    $result->executeReturn->result->dataVectors->dataRow[0],
-                    $result->executeReturn->result->dataVectors->dataRow[1]
-                )
-            : null;
+        if ( !isset($result->executeReturn->result->dataVectors) ) {
+            return null;
+        }
+
+        $lemmatized = is_array($result->executeReturn->result->dataVectors)
+            ?  $result->executeReturn->result->dataVectors[0]->dataRow[0]
+            : $result->executeReturn->result->dataVectors->dataRow[0];
+
+        $posTag = is_array($result->executeReturn->result->dataVectors)
+            ?  $result->executeReturn->result->dataVectors[0]->dataRow[1]
+            : $result->executeReturn->result->dataVectors->dataRow[1];
+
+        return new word\Baseform( $lemmatized, $posTag);
+    }
+
+    /**
+     * returns the lemmatized (base) forms of the input word
+     *
+     * @param string $word
+     *
+     * @return array of de\detert\sebastian\wortschatz\word\Baseform
+     */
+    public function getBaseforms($word)
+    {
+        $return = array();
+        $result = $this->execute(array('Wort', $word));
+
+        if ( !isset($result->executeReturn->result->dataVectors) ) {
+
+        } else if ( is_array($result->executeReturn->result->dataVectors) ) {
+
+            foreach ( $result->executeReturn->result->dataVectors as $dataVector ) {
+                $return[] = new word\Baseform(
+                    $dataVector->dataRow[0],
+                    $dataVector->dataRow[1]
+                );
+            }
+        } else {
+            $return[] = new word\Baseform(
+                $result->executeReturn->result->dataVectors->dataRow[0],
+                $result->executeReturn->result->dataVectors->dataRow[1]
+            );
+        }
+
+        return $return;
     }
 }

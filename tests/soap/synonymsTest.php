@@ -60,9 +60,9 @@ class SynonymsTest extends \PHPUnit_Framework_TestCase
         $client = $this->createSynonyms();
 
         $expected = array(
-            array('Kraftwagen', 'S'),
-            array('Automobil', 'S'),
-            array('Benzinkutsche', 'S'),
+            'Kraftwagen',
+            'Automobil',
+            'Benzinkutsche',
         );
         $actual = $client->getSynonyms('Auto', 3);
 
@@ -74,9 +74,9 @@ class SynonymsTest extends \PHPUnit_Framework_TestCase
         $client = $this->createSynonyms();
 
         $expected = array(
-            array('abnehmen', 's'),
-            array('hinfallen', 'S'),
-            array('purzeln', 'S'),
+            'abnehmen',
+            'hinfallen',
+            'purzeln',
         );
         $actual = $client->getSynonyms('fallen', 3);
 
@@ -88,11 +88,25 @@ class SynonymsTest extends \PHPUnit_Framework_TestCase
         $client = $this->createSynonyms();
 
         $expected = array(
-            array('dutzendfach', 's'),
-            array('dutzendmal', 's'),
-            array('etlichemal', 's'),
+            'dutzendfach',
+            'dutzendmal',
+            'etlichemal',
         );
         $actual = $client->getSynonyms('oft', 3);
+
+        $this->assertEquals($expected, $actual, print_r($actual, true));
+    }
+
+    public function testShouldReturnColorExecute()
+    {
+        $client = $this->createSynonyms();
+
+        $expected = array(
+            'benebelt',
+            'betrunken',
+            'alkoholisiert',
+        );
+        $actual = $client->getSynonyms('blau', 3);
 
         $this->assertEquals($expected, $actual, print_r($actual, true));
     }

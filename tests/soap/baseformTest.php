@@ -55,4 +55,85 @@ class BaseformTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, $actual, print_r($actual, true));
     }
+
+    public function testShouldReturnVerbExecute()
+    {
+        $client = $this->createBaseform();
+
+        $expected = new word\Baseform('Auto', 'N');
+        $actual = $client->getBaseform('Autos');
+
+        $this->assertEquals($expected, $actual, print_r($actual, true));
+    }
+
+    public function testShouldReturnAdverbExecute()
+    {
+        $client = $this->createBaseform();
+
+        $expected = new word\Baseform('oft', 'A');
+        $actual = $client->getBaseform('oft');
+
+        $this->assertEquals($expected, $actual, print_r($actual, true));
+    }
+
+    public function testShouldReturnStopwordExecute()
+    {
+        $client = $this->createBaseform();
+
+        $expected = new word\Baseform('auch', '-');
+        $actual = $client->getBaseform('auch');
+
+        $this->assertEquals($expected, $actual, print_r($actual, true));
+    }
+
+    public function testShouldReturnEinExecute()
+    {
+        $client = $this->createBaseform();
+
+        $expected = new word\Baseform('ein', '-');
+        $actual = $client->getBaseform('ein');
+
+        $this->assertEquals($expected, $actual, print_r($actual, true));
+    }
+
+    public function testShouldReturnMoreExecuteResults()
+    {
+        $client = $this->createBaseform();
+
+        $expected = array(
+            new word\Baseform('ein', '-'),
+            new word\Baseform('einen', '-'),
+            new word\Baseform('ein', '-'),
+            new word\Baseform('ein', 'S'),
+            new word\Baseform('ein', 'S'),
+            new word\Baseform('ein', 'S'),
+            new word\Baseform('ein', 'S'),
+        );
+        $actual = $client->getBaseforms('ein');
+
+        $this->assertEquals($expected, $actual, print_r($actual, true));
+    }
+
+    public function testShouldReturnEmptyExecuteResults()
+    {
+        $client = $this->createBaseform();
+
+        $expected = array(
+        );
+        $actual = $client->getBaseforms('!!! not a word !!!');
+
+        $this->assertEquals($expected, $actual, print_r($actual, true));
+    }
+
+    public function testShouldReturnOneExecuteResults()
+    {
+        $client = $this->createBaseform();
+
+        $expected = array(
+            new word\Baseform('auch', '-'),
+        );
+        $actual = $client->getBaseforms('auch');
+
+        $this->assertEquals($expected, $actual, print_r($actual, true));
+    }
 }

@@ -60,9 +60,9 @@ class RightNeighboursTest extends \PHPUnit_Framework_TestCase
         $client = $this->createRightNeighbours();
 
         $expected = array(
-            array('Auto', 'erfaßt', 575),
-            array('Auto', 'angefahren', 480),
-            array('Auto', 'gezerrt', 186),
+            'erfaßt',
+            'angefahren',
+            'gezerrt', 
         );
         $actual = $client->getNeighbours('Auto', 3);
 

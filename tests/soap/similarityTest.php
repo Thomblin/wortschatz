@@ -60,9 +60,9 @@ class SimilarityTest extends \PHPUnit_Framework_TestCase
         $client = $this->createSimilarity();
 
         $expected = array(
-            array('Auto', 'Wagen', 26),
-            array('Auto', 'Fahrzeug', 25),
-            array('Auto', 'Kleinbus', 21),
+            'Wagen',
+            'Fahrzeug',
+            'Kleinbus',
         );
         $actual = $client->getSimilarities('Auto', 3);
 

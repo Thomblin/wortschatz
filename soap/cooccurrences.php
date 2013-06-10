@@ -39,7 +39,7 @@ class Cooccurrences extends Service
         );
 
         return isset($result->executeReturn->result->dataVectors)
-            ? $this->getDataRows($result->executeReturn->result->dataVectors)
+            ? $this->getDataRows($result->executeReturn->result->dataVectors, array(1))
             : array();
     }
 }

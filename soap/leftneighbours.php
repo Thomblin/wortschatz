@@ -38,7 +38,7 @@ class LeftNeighbours extends Service
         );
 
         return isset($result->executeReturn->result->dataVectors)
-            ? $this->getDataRows($result->executeReturn->result->dataVectors)
+            ? $this->getDataRows($result->executeReturn->result->dataVectors, array(0))
             : array();
     }
 }

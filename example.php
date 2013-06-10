@@ -1,15 +1,14 @@
 <?php
 
-use de\detert\sebastian\wortschatz\soap;
+use de\detert\sebastian\wortschatz\Autoload;
+use de\detert\sebastian\wortschatz\soap\Config;
+use de\detert\sebastian\wortschatz\soap\Synonyms;
 
 require 'autoload.php';
 
 new Autoload();
 
-$config = new soap\Config();
-$config->corpus = 'de';
-
-$synonyms = new soap\Synonyms($config);
+$synonyms = new Synonyms(new Config());
 
 try {
     $words = $synonyms->getSynonyms('Beispiel', 5);

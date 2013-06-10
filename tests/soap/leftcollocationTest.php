@@ -60,8 +60,8 @@ class LeftCollocationTest extends \PHPUnit_Framework_TestCase
         $client = $this->createLeftCollocation();
 
         $expected = array(
-            array('abbiegend', 'A', 'Auto'),
-            array('abfahrend', 'A', 'Auto'),
+            'abbiegend',
+            'abfahrend',
         );
         $actual = $client->getCollocations('Auto', 'A', 2);
 
@@ -73,8 +73,8 @@ class LeftCollocationTest extends \PHPUnit_Framework_TestCase
         $client = $this->createLeftCollocation();
 
         $expected = array(
-            array('Aharoni', 'N', 'Auto'),
-            array('Anto', 'N', 'Auto'),
+            'Aharoni',
+            'Anto',
         );
         $actual = $client->getCollocations('Auto', 'N', 2);
 
@@ -86,8 +86,8 @@ class LeftCollocationTest extends \PHPUnit_Framework_TestCase
         $client = $this->createLeftCollocation();
 
         $expected = array(
-            array('abgasfreien', 'V', 'Auto'),
-            array('alkoholisieren', 'V', 'Auto'),
+            'abgasfreien',
+            'alkoholisieren',
         );
         $actual = $client->getCollocations('Auto', 'V', 2);
 
@@ -99,8 +99,8 @@ class LeftCollocationTest extends \PHPUnit_Framework_TestCase
         $client = $this->createLeftCollocation();
 
         $expected = array(
-            array('Mastermix', 'S', 'Auto'),
-            array('kontra', 'S', 'Auto'),
+            'Mastermix',
+            'kontra',
         );
         $actual = $client->getCollocations('Auto', 'S', 2);
 

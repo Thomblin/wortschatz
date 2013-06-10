@@ -60,9 +60,9 @@ class ExperimentalSynonymsTest extends \PHPUnit_Framework_TestCase
         $client = $this->createExperimentalSynonyms();
 
         $expected = array(
-            array('Fahrzeug', 'v'),
-            array('Bus', 'v'),
-            array('Cab', 'v'),
+            'Fahrzeug',
+            'Bus',
+            'Cab',
         );
         $actual = $client->getExperimentalSynonyms('Auto', 3);
 
@@ -74,9 +74,9 @@ class ExperimentalSynonymsTest extends \PHPUnit_Framework_TestCase
         $client = $this->createExperimentalSynonyms();
 
         $expected = array(
-            array('eilen', 'v'),
-            array('jagen', 'v'),
-            array('rasen', 'v'),
+            'eilen',
+            'jagen',
+            'rasen',
         );
         $actual = $client->getExperimentalSynonyms('laufen', 3);
 

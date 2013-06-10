@@ -1,4 +1,6 @@
 <?php
+namespace de\detert\sebastian\wortschatz;
+
 /**
  * @author sebastian.detert <github@elygor.de>
  * @date 09.06.13
@@ -7,7 +9,6 @@
  */
 class Autoload
 {
-
     public function __construct()
     {
         spl_autoload_register(array($this, 'simpleAutoload'));

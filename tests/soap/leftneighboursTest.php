@@ -60,9 +60,9 @@ class LeftNeighboursTest extends \PHPUnit_Framework_TestCase
         $client = $this->createLeftNeighbours();
 
         $expected = array(
-            array('geparktes', 'Auto', 561),
-            array('seinem', 'Auto', 534),
-            array('fahrenden', 'Auto', 380),
+            'geparktes',
+            'seinem',
+            'fahrenden',
         );
         $actual = $client->getNeighbours('Auto', 3);
 

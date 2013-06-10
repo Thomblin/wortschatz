@@ -31,7 +31,3 @@ Similarity
 Synonyms
 Thesaurus
 Wordforms
-
-TODO:
-
-some services return minor information. only important return values should be delivered

@@ -60,8 +60,8 @@ class RightCollocationTest extends \PHPUnit_Framework_TestCase
         $client = $this->createRightCollocation();
 
         $expected = array(
-            array('Auto', 'abgesetzt', 'A'),
-            array('Auto', 'angebohrt', 'A'),
+            'abgesetzt',
+            'angebohrt',
         );
         $actual = $client->getCollocations('Auto', 'A', 2);
 
@@ -73,8 +73,8 @@ class RightCollocationTest extends \PHPUnit_Framework_TestCase
         $client = $this->createRightCollocation();
 
         $expected = array(
-            array('Auto', 'Armbanduhr', 'N'),
-            array('Auto', 'Bild', 'N'),
+            'Armbanduhr',
+            'Bild',
         );
         $actual = $client->getCollocations('Auto', 'N', 2);
 
@@ -86,8 +86,8 @@ class RightCollocationTest extends \PHPUnit_Framework_TestCase
         $client = $this->createRightCollocation();
 
         $expected = array(
-            array('Auto', 'abfackeln', 'V'),
-            array('Auto', 'abholen', 'V'),
+            'abfackeln',
+            'abholen',
         );
         $actual = $client->getCollocations('Auto', 'V', 2);
 
@@ -99,8 +99,8 @@ class RightCollocationTest extends \PHPUnit_Framework_TestCase
         $client = $this->createRightCollocation();
 
         $expected = array(
-            array('Auto', 'Daewoo Heavy Industries', 'S'),
-            array('Auto', 'EISLINGEN', 'S'),
+            'Daewoo Heavy Industries',
+            'EISLINGEN',
         );
         $actual = $client->getCollocations('Auto', 'S', 2);
 

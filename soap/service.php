@@ -87,11 +87,12 @@ abstract class Service
     }
 
     /**
-     * @param $dataVectors $result->executeReturn->result->dataVectors
+     * @param array|string $dataVectors $result->executeReturn->result->dataVectors
+     * @param array        $select      keys to be returned
      *
      * @return array
      */
-    protected function getDataRows($dataVectors)
+    protected function getDataRows($dataVectors, array $select = array())
     {
         $result = array();
 
@@ -100,9 +101,34 @@ abstract class Service
         }
 
         foreach ( $dataVectors as $dataVector ) {
-            $result[] = $dataVector->dataRow;
+            $result[] = $this->getIntersection((array) $dataVector->dataRow, $select);
         }
 
         return $result;
+    }
+
+    /**
+     * @param array $array  array to be split
+     * @param array $select keys to be returned
+     *
+     * @return array|string
+     */
+    private function getIntersection(array $array, array $keys)
+    {
+        if ( ! empty($keys) ) {
+            $result = array();
+
+            foreach ( $array as $key => $value ) {
+                if ( in_array($key, $keys) ) {
+                    $result[$key] = $value;
+                }
+            }
+        } else {
+            $result = $array;
+        }
+
+        return 1 === count($result)
+            ? current($result)
+            : $result;
     }
 }

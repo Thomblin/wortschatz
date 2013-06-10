@@ -60,8 +60,8 @@ class SentencesTest extends \PHPUnit_Framework_TestCase
         $client = $this->createSentences();
 
         $expected = array(
-            array(40808144, 'Zweitens der freche, frische Klang der Hupe und drittens die hinreißend gestylten 16-Zoll-Felgen, die es leider nur für dieses Auto gibt.'),
-            array(40808138, 'Dazu kommen weitere Aspekte: Im Crossblade gewöhnt man sich automatisch das Rauchen im Auto ab (wer will schon Asche im Antlitz haben).'),
+            'Zweitens der freche, frische Klang der Hupe und drittens die hinreißend gestylten 16-Zoll-Felgen, die es leider nur für dieses Auto gibt.',
+            'Dazu kommen weitere Aspekte: Im Crossblade gewöhnt man sich automatisch das Rauchen im Auto ab (wer will schon Asche im Antlitz haben).',
         );
         $actual = $client->getSentences('Auto', 2);
 
