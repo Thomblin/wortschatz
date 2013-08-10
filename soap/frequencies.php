@@ -35,7 +35,9 @@ class Frequencies extends Service
     {
         $result = $this->execute(array('Wort', $word));
 
-        return isset($result->executeReturn->result->dataVectors)
+        return (isset($result->executeReturn->result->dataVectors)
+            && isset($result->executeReturn->result->dataVectors->dataRow[0])
+            && isset($result->executeReturn->result->dataVectors->dataRow[1]))
             ? new word\Frequency(
                     $result->executeReturn->result->dataVectors->dataRow[0],
                     $result->executeReturn->result->dataVectors->dataRow[1]
